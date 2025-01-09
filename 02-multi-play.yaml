@@ -3,7 +3,7 @@
  hosts: web
  tasks: 
   -name: PLAY-01 TASK-01 #list of tasks
-  ansible.builtin.debug: #module name
+   ansible.builtin.debug: #module name
     msg: "This is from PLAY-01 and TASK-01"
 
 #PLAY-02
