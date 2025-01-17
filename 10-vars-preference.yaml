@@ -1,0 +1,24 @@
+- name: variable from inventory file
+  hosts: web
+  vars: #These are play level variables, all tasks in this play can access to this
+    COURSE: "Devops with AWS from PLAY level"
+    DURATION: "120HRS"
+    TRAINER: "Sivakumar Reddy M"
+  vars_prompt: #vars_prompt confidential information
+  - name: COURSE
+    prompt: please enter the course name
+    private: false #not confidential
+  - name: TRAINER
+    prompt: please enter the trainer name
+    private: false #not confidential
+  - name: DURATION
+    prompt: please enter the duration
+    private: false #not confidential
+  tasks:
+  - name: print the information
+    vars:
+      COURSE: "Devops with AWS from TASK level"
+      DURATION: "120HRS"
+      TRAINER: "Sivakumar Reddy M"
+    ansible.builtin.debug:
+      msg: "Hi, I'm learning {{COURSE}}, Duration is: {{DURATION}}, Trainer is: {{TRAINER}}
