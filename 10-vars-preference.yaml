@@ -21,4 +21,7 @@
 
 # First preference is always command line/args
 # Second preference is TASK level
-# Third preference prompt
+# Third preference vars_files
+# Fourth vars_prompt
+# Fifth PLAY level
+# Last is Inventory level
