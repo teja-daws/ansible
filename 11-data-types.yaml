@@ -1,4 +1,4 @@
--name: devops course information
+- name: devops course information
 hosts: local
 vars:
   course: "DevOps with AWS" # this is string data-type
