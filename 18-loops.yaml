@@ -1,6 +1,6 @@
 - name: loops demo
-  hosts: local
-  conncetion: local
+  hosts: web
+  become: yes
   tasks:
   - name: install packages
     ansible.builtin.package:
