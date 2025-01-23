@@ -6,4 +6,4 @@
     ansible.builtin.debug:
       msg: "Hello Ramesh"
     loop: "Hello {{ item }} "
-    - Ramesh
+    - { 'Ramesh' }
