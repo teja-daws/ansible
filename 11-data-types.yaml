@@ -1,5 +1,5 @@
 - name: devops course information
-hosts: local
+  hosts: local
 vars:
   course: "DevOps with AWS" # this is string data-type
   duration: 120HRS # number INT, float --> generally refered as number
