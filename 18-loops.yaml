@@ -9,5 +9,5 @@
     loop:
     - { name: 'mysql', state: 'present' }
     - { name: 'ngnix', state: 'absent' }
-    - { name: 'postfix', state: 'adesnt' }
+    - { name: 'postfix', state: 'absent' }
     - { name: 'httpd', state: 'present' }
