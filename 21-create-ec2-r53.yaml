@@ -49,4 +49,4 @@
       wait: true
       overwrite: true
     loop: "{{ ec2_instances.results }}"
-    when: item.item == "froentend" #when keyword should not have {{}}
+    when: item.item == "frontend" #when keyword should not have {{}}
