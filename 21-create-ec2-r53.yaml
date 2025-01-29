@@ -42,11 +42,11 @@
     amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
-      record: "{{ item.item }}.{{ zone }}" #froentend.tejadevops.site
+      record: "{{ zone }}" #tejadevops.site
       type: A
       ttl: 1
       value: "{{ item.instances[0].public_ip_address }}"
       wait: true
       overwrite: true
     loop: "{{ ec2_instances.results }}"
-    when: "item.item == froentend"
+    when: item.item == "froentend" #when keyword should not have {{}}
