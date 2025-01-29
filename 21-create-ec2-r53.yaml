@@ -25,14 +25,28 @@
     ansible.builtin.debug:
       msg: " {{ ec2_instances }} "
   
-  - name: create route53 records
+#private IP R53
+  - name: create route53 private records
     amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
-      record: "{{ item.item }}.{{ zone }}" #tejadevops.site
+      record: "{{ item.item }}.{{ zone }}" #mysql.tejadevops.site
       type: A
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
       wait: true
       overwrite: true
     loop: "{{ ec2_instances.results }}"
+
+  - name: create route53 public records for froentend  #public routes is only with froentend
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}" #froentend.tejadevops.site
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].public_ip_address }}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_instances.results }}"
+    when: "ec2_instances.results.item == froentend"
