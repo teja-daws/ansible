@@ -22,4 +22,4 @@
 
   - name: print the output
     ansible.builtin.debug:
-      msg " {{ ec2_instances }} "
+      msg: " {{ ec2_instances }} "
